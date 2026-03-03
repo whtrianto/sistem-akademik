@@ -257,26 +257,17 @@
                 $count[$num]++; // Tambah 1 ke counter
             }
 
-            // Ambil angka yang muncul lebih dari 1 kali
-            foreach ($count as $num => $cnt) {
-                if ($cnt > 1) {
-                    $duplicates[$num] = $cnt;
-                }
-            }
-            foreach ($arr as $num) {
-    $num = trim($num);
-    if ($num === '') continue;
+// Ambil angka yang muncul lebih dari 1 kali
+foreach ($count as $num => $cnt) {
+    // Lewati jika negatif
+    if ($num < 0) continue;
 
-    $num = (int) $num;
-
-    // Tambahkan ini
-    if ($num < 0) continue; // Lewati jika negatif
-
-    if (!isset($count[$num])) {
-        $count[$num] = 0;
+    if ($cnt > 1) {
+        $duplicates[$num] = $cnt;
     }
-    $count[$num]++;
 }
+            
+
 
             return $duplicates;
         }
